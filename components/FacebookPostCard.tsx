@@ -36,28 +36,40 @@ export default function FacebookPostCard({
               className="object-cover"
             />
           </div>
-          <div className="leading-tight">
-            <p className="text-[15px] font-semibold text-[#050505]">{profileName}</p>
-            <div className="flex items-center gap-1 text-[13px] text-[#65676B]">
-              {isLeft && (
-                <>
-                  <span>AI content</span>
-                  <span>·</span>
-                </>
-              )}
-              <span>{time}</span>
-              <span>·</span>
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 fill-[#65676B]">
-                <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.47 6.47 0 011.06-3.56c.36.5.94 1.1 1.67 1.34.03.57.2 1.02.5 1.34-.3.28-.5.68-.5 1.13 0 .62.37 1.13.9 1.36-.1.28-.16.6-.16.94 0 .8.34 1.5.87 1.98A6.5 6.5 0 011.5 8zm6.5 6.47a6.49 6.49 0 01-2.23-.4c.4-.4.66-.98.66-1.62 0-.58-.22-1.06-.55-1.42.4-.24.68-.66.68-1.16 0-.5-.28-.92-.68-1.16.2-.24.34-.56.34-.94 0-.66-.42-1.16-1-1.4.5-.3.94-.76 1.16-1.34A6.48 6.48 0 018 1.5c.9 0 1.75.2 2.5.55-.34.4-.56.9-.56 1.45 0 .5.2.95.5 1.28-.5.2-.86.66-.86 1.22 0 .5.3.9.7 1.14-.44.3-.72.8-.72 1.36 0 .6.32 1.12.8 1.4-.14.4-.22.84-.22 1.3 0 .34.04.66.12.97a6.5 6.5 0 01-1.26.3z"/>
-              </svg>
+
+          {isLeft ? (
+            <div className="leading-tight">
+              <p className="text-[15px] font-semibold text-[#050505]">{profileName}</p>
+              <div className="flex items-center gap-1 text-[13px] text-[#65676B]">
+                <span className="rounded-md border-2 border-red-600 px-1.5 py-0.5 font-medium text-[#050505]">
+                  AI content
+                </span>
+                <span>·</span>
+                <span>{time}</span>
+                <span>·</span>
+                <GlobeIcon />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="rounded-md border-2 border-green-600 px-2 py-1 leading-tight">
+              <p className="text-[15px] font-semibold text-[#050505]">{profileName}</p>
+              <div className="flex items-center gap-1 text-[13px] text-[#65676B]">
+                <span>{time}</span>
+                <span>·</span>
+                <GlobeIcon />
+              </div>
+            </div>
+          )}
         </div>
-        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-[#65676B]">
-          <circle cx="5" cy="12" r="2" />
-          <circle cx="12" cy="12" r="2" />
-          <circle cx="19" cy="12" r="2" />
-        </svg>
+
+        <div className="flex items-center gap-2">
+          {isLeft ? <CrossMark /> : <CheckMark />}
+          <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 fill-[#65676B]">
+            <circle cx="5" cy="12" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="19" cy="12" r="2" />
+          </svg>
+        </div>
       </div>
 
       {/* Caption */}
@@ -115,4 +127,28 @@ export default function FacebookPostCard({
       </div>
     </div>
   );
-          }
+}
+
+function GlobeIcon() {
+  return (
+    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 shrink-0 fill-[#65676B]">
+      <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.47 6.47 0 011.06-3.56c.36.5.94 1.1 1.67 1.34.03.57.2 1.02.5 1.34-.3.28-.5.68-.5 1.13 0 .62.37 1.13.9 1.36-.1.28-.16.6-.16.94 0 .8.34 1.5.87 1.98A6.5 6.5 0 011.5 8zm6.5 6.47a6.49 6.49 0 01-2.23-.4c.4-.4.66-.98.66-1.62 0-.58-.22-1.06-.55-1.42.4-.24.68-.66.68-1.16 0-.5-.28-.92-.68-1.16.2-.24.34-.56.34-.94 0-.66-.42-1.16-1-1.4.5-.3.94-.76 1.16-1.34A6.48 6.48 0 018 1.5c.9 0 1.75.2 2.5.55-.34.4-.56.9-.56 1.45 0 .5.2.95.5 1.28-.5.2-.86.66-.86 1.22 0 .5.3.9.7 1.14-.44.3-.72.8-.72 1.36 0 .6.32 1.12.8 1.4-.14.4-.22.84-.22 1.3 0 .34.04.66.12.97a6.5 6.5 0 01-1.26.3z" />
+    </svg>
+  );
+}
+
+function CrossMark() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-red-600 stroke-[3]">
+      <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CheckMark() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-green-600 stroke-[3]">
+      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
