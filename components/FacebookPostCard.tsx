@@ -139,16 +139,22 @@ function GlobeIcon() {
 
 function CrossMark() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-red-600 stroke-[3]">
-      <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9 shrink-0 stroke-red-600 stroke-[4.5] drop-shadow-sm"
+    >
+      <path d="M5 5l14 14M19 5L5 19" strokeLinecap="round" />
     </svg>
   );
 }
 
 function CheckMark() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-green-600 stroke-[3]">
-      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9 shrink-0 stroke-green-600 stroke-[4.5] drop-shadow-sm"
+    >
+      <path d="M4 13l5 5L20 6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
