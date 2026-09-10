@@ -20,10 +20,8 @@ function AppBody() {
         </div>
 
         {/* Preview */}
-        <div className="overflow-x-auto rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
-          <div className="min-w-[640px]">
-            <TemplatePreview ref={previewRef} template={template} />
-          </div>
+        <div className="overflow-auto rounded-xl bg-white p-2 shadow-sm ring-1 ring-gray-200">
+          <TemplatePreview ref={previewRef} template={template} />
         </div>
       </div>
     </div>
